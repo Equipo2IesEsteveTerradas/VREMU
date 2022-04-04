@@ -27,4 +27,10 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
     
+    $.ajax({
+        method: "GET",
+        url: "https://ietivroom.herokuapp.com/api/start_vr_exercise",
+        data: {"pin": 2997},
+        dataType: "json",
+    })
 }
