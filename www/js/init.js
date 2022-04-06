@@ -15,27 +15,36 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
     //LoginButton onclick function
-    $("#loginButton").click(function(){
+    $("#loginButton").click( function(){
       let pin = $("#pin").val();
-      let pinList = [1234,1111];
-      let sToken;
-      //We identify the API to be used
-      let usedAPI;
-      let isValid= false;
-      //Pin check
-      for(let i = 0;i<pinList.length;i++){
-        if (pinList[i]==pin){
-          isValid=true;
+      $.ajax({
+        method: "GET",
+        // AMS API
+        url: "https://class-vr-room-api.herokuapp.com/api/start_vr_exercise",
+        // AWS API
+        // url: "https://ietivroom.herokuapp.com/api/start_vr_exercise",
+        //AMS API
+        data: {"PIN": pin},
+        // AWS API
+        // data: {"pin": pin},
+        dataType: "json",
+      }).done(function(response){
+        console.log(response);
+        alert(response)
+        if(response.status === "OK"){
+          localStorage.setItem("pin", pin);
+          localStorage.setItem("VRexID", response.VRexerciseID);
+          window.location.assign('emulator.html');
+        }else{
+          alert(`${response.status}: ${response.message}`);
         }
-      }
-      if(isValid){
-        window.location.assign('emulator.html');
-      }else{
-        alert("Error: Introdueix el pin correcte");
-      }
-      
-      
+      }).fail(function(failed){
+        console.log(failed);
+        alert(JSON.stringify(failed));
+      });
+        
       //Page reload prevention
       return false;
-      });
+      
+    });
 }
