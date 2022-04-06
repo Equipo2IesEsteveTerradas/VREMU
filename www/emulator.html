@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src https://code.jquery.com https://fonts.gstatic.com 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' data: https://classvr-room-api.herokuapp.com ; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' * data: content:;">  <meta name="format-detection" content="telephone=no"> -->
+
+    <title>Document</title>
+    <!-- CSS  -->
+    <style>
+        body{
+            background: rgb(230,100,101);
+            background: linear-gradient(135deg, rgba(230,100,101,1) 28%, rgba(145,152,229,1) 61%);       }  
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<!-- Page Body  -->
+<body>
+    <div class="row">
+        <h1 style="color: white;">OMPLE ELS CAMPS</h1>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="passeditems" id="passed_items" type="number" class="validate" style="color: white;">
+              <label for="passed_items">Passed items</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="faileditems" id="failed_items" type="number" class="validate" style="color: white;">
+              <label for="failed_items">Failed items</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Score" id="score" type="number" class="validate" style="color: white;">
+              <label for="score">Score (%)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Feedback" id="feedback" type="text" class="validate" style="color: white;">
+              <label for="feedback">Feedback</label>
+            </div>
+          </div>
+          <button id="sendValuation" class="btn waves-effect waves-light">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+        </form>
+        
+    </div>
+    <!--  Scripts-->
+    <script src="cordova.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/emulator.js"></script>
+</body>
+</html>
